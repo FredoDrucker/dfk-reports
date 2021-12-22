@@ -55,33 +55,7 @@ export const data = {
     },
   ],
 };
-// export default function App() {
-//   var r_data = {
-//     jsonrpc: "2.0",
-//     id: 1,
-//     method: "hmyv2_getTransactionsHistory",
-//     params: [
-//       {
-//         address: "one15vlc8yqstm9algcf6e94dxqx6y04jcsqjuc3gt",
-//         pageIndex: 0,
-//         pageSize: 1,
-//         fullTx: true,
-//         txType: "ALL",
-//         order: "ASC"
-//       }
-//     ]
-//   }
-//   fetch('https://rpc.s0.t.hmny.io', {
-//     method: 'POST', headers: {
-//       'Content-Type': 'application/json'
-//       // 'Content-Type': 'application/x-www-form-urlencoded',
-//     }, body: JSON.stringify(r_data)
-//   })
-//     .then(response => response.json())
-//     .then(data => console.log(data));
 
-//   return React.createElement(Line, { options: options, data: data });
-// }
 
 const Styles = styled.div`
   padding: 1rem;
@@ -281,9 +255,33 @@ function App() {
   var t_data= [{firstName: "firstName", lastName:"lastName", age: 20,
   visits:21,  progress: 22, status: "single"
 }];
+  var r_data = {
+    jsonrpc: "2.0",
+    id: 1,
+    method: "hmyv2_getTransactionsHistory",
+    params: [
+      {
+        address: "one15vlc8yqstm9algcf6e94dxqx6y04jcsqjuc3gt",
+        pageIndex: 0,
+        pageSize: 1,
+        fullTx: true,
+        txType: "ALL",
+        order: "ASC"
+      }
+    ]
+  }
+  fetch('https://rpc.s0.t.hmny.io', {
+    method: 'POST', headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    }, body: JSON.stringify(r_data)
+  })
+    .then(response => response.json())
+    .then(data => console.log(data));
   return (
     <Styles>
       <Table columns={columns} data={t_data} />
+      <Line data={data}></Line>
     </Styles>
   )
 }
